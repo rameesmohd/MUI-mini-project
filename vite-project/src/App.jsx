@@ -1,19 +1,18 @@
-import { Container ,Grid} from '@mui/material'
 import './App.css'
-import TourCard from './components/TourCard'
-import Navbar from './components/AppBar'
+import About from './pages/About'
+import Home from './pages/Home'
+import {Route,Routes,BrowserRouter} from 'react-router-dom'
+import AppBar from './components/AppBar'
 
 function App() {
-
   return (
-  <div className='App'>
-  <Navbar/>
-  <Container sx={{ marginY: '20px' }}>
-    <Grid container spacing={5}>
-     {[...Array(4)].map(()=><TourCard/>)}
-    </Grid>
-  </Container>
-  </div>
+  <BrowserRouter>
+  <AppBar/>
+    <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/about' element={<About/>}/>
+    </Routes>
+  </BrowserRouter>
   )
 }
 
